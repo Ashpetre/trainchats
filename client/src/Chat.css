@@ -1,0 +1,84 @@
+.chatbox {
+    width: 400px;
+    height: 500px;
+    background: #ffecf3;
+    border-radius: 15px;
+    padding: 15px;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.5);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+  }
+  
+  /* Messages */
+  .messages {
+    height: 350px;
+    overflow-y: auto;
+    background: #fffaf0;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  /* User & AI Messages */
+  .user-message {
+    background: #ffb6c1;
+    color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 5px 0;
+  }
+  
+  .ai-message {
+    background: #cce7ff;
+    color: #003366;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 5px 0;
+  }
+  
+  /* Error Flashing Background */
+  @keyframes red-flash {
+    0% { background-color: #ffebee; }
+    50% { background-color: red; }
+    100% { background-color: #ffebee; }
+  }
+  
+  .error-background {
+    animation: red-flash 1s ease-in-out 2;
+  }
+  
+  /* Train Animation */
+  .train {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    z-index: 1;
+  }
+  
+  /* Chat Input & Button */
+  input {
+    width: 80%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ff69b4;
+  }
+  
+  button {
+    background: #ff69b4;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  button:hover {
+    background: #ff1493;
+  }
+  
