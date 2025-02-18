@@ -1,14 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-
-
-
+const axios = require("axios");
 
 const app = express();
 app.use(cors()); //Allow Frontend Request 
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
+const PYTHON_API_URL = "http://127.0.0.1:5001/chat"; // Flask API endpoint
 
 
 
@@ -18,23 +17,15 @@ app.get("/", (req, res) => {
 
 //Handle chat request
 app.post("/chat", async (req, res) => {
-  console.log("Received request:", req.body); // Log request
-  const { message } = req.body;
+  try{
+    const userMessage = req.body.message;
 
-  try {
-    const response = await fetch("http://localhost:11434/api/generate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ model: "llama2:chat", prompt: message, stream: false }),
-    });
+    const response = await axios.post(PYTHON_API_URL,{message: userMessage});
 
-    const data = await response.json();
-    console.log("Ollama Response:", data); // Log AI response
-
-    res.json({ response: data.response });
+    res.json(response.data)
   } catch (error) {
     console.error("Server Error:", error);
-    res.status(500).json({ response: "AI server is unavailable." });
+    res.status(500).json({ response: "Failed to connect to chatbot API" });
   }
 });
 

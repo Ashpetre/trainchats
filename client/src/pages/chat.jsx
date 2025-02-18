@@ -9,6 +9,7 @@ function Chat() {
   const warningSound = new Audio("/warning.mp3"); // Add a warning sound in `public/` folder
 
   const trainKeywords = ["train", "railway", "locomotive", "track", "subway", "metro", "station", "bullet train"];
+  
 
   // Move train around while avoiding the chatbox
   const moveTrain = () => {
@@ -87,6 +88,7 @@ function Chat() {
   return (
     <div ref={chatboxRef} className="chatbox">
       <h2>🚂 Train AI Chatbox</h2>
+      <h3>Welcome to my train Ai bot. You are only allowed to ask question related to trains. you will be trained down if you askk any other questions</h3>
 
       {/* Moving Train */}
       <img ref={trainRef} src="/train.jpg" alt="Train" className="train" />
